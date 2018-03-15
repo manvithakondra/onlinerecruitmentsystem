@@ -8,7 +8,7 @@
     
     
     <nav class="nav navbar-nav navbar-right">
-     <a href="login.do" class="navbar-brand">Login 123</a>
+     <a href="login.do" class="navbar-brand">Login</a>
       
     </nav>
    </nav>
