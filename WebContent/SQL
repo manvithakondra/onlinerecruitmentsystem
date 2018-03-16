@@ -1,7 +1,14 @@
-CREATE TABLE `todos` (
-  `todo_id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(45) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
-  `user_id` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`todo_id`)
+CREATE TABLE `postjob` (
+  `jid` int(10) AUTO_INCREMENT,
+  `percentage` varchar(30),
+  `year` int(10),
+  `degree` varchar(100),
+  `branch` varchar(100),
+  `designation` varchar(100),
+  `address` varchar(100),
+  `event_venue` varchar(100),
+  `profile` varchar(100),
+  `salary` int(100),
+  `event_date` date,
+  PRIMARY KEY (`jid`)
 );
