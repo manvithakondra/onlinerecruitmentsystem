@@ -2,6 +2,7 @@ package com.app.registration;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ public class AboutUsServlet extends HttpServlet {
 	@Resource(name = "jdbc/onlinerecruiter")
     private DataSource ds;
 	Connection conn;
-	private AboutUsService userRegister= new AboutUsService();
+	private AboutUsService companyDetails= new AboutUsService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
@@ -28,7 +29,20 @@ public class AboutUsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("company");
+		String address = request.getParameter("address");
+		try
+		{
+			conn=ds.getConnection();
+			companyDetails.isCompanyRegistered(name, address, conn);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
 		request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
-	}
 
+}
 }
