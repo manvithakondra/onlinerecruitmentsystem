@@ -6,7 +6,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 				         style="font-size:100%;">Jobs<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Job by Location</a></li>
+						<li><a href="view/index.html">Job by Location</a></li>
 						<li><a href="#">Job by Skill</a></li>
 						<li><a href="#">Job by Designation</a></li>
 						<li><a href="#">Job by Category</a></li>

@@ -15,7 +15,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 				          style="font-size:100%;">Company<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="about.do">About Us</a></li>
+						<li><a href="#">About Us</a></li>
 						<li><a href="#">Industries</a></li>
 						<li><a href="#">Services</a></li>
 						<li><a href="#">Softwares</a></li>
@@ -51,4 +51,16 @@
             </ul>
 		</nav>
 	</header>
+	<div class="container">
+ 
+ 	<form action="about.do" method="post" class="form-signin">
+		<p>
+			<font color="red">${error}</font>
+		</p>
+			<input type="text" class="form-control" name="company" placeholder="Company Name" required="" autofocus="" />
+			<input type="text" class="form-control" name="address" placeholder="Address" required="" autofocus="" />    	      
+      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button> 
+			    	
+	</form>
+ </div>
 <%@include file="/common/footer.jspf" %>
