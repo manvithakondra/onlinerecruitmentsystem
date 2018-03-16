@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.app.mailnotification.SendMail;
+
 //import com.app.todo.Todo;
 
 
@@ -31,6 +33,8 @@ public class PostServlet extends HttpServlet {
 		{
 			conn = ds.getConnection();
 			//request.setAttribute("messages", postService.retrieveMessage(conn));
+			//System.out.println("test5");
+
 			request.getRequestDispatcher("view/post.jsp").forward(request, response);
 			
 		}
@@ -68,7 +72,7 @@ public class PostServlet extends HttpServlet {
 		if (percentage!=null && year!=null && degree!=null && branch!=null 
 				&& designation!=null && address!=null && event_venue!=null && profile!=null 
 				&& salary!=null && event_date!=null) {
-			System.out.println("inside");
+			//System.out.println("inside");
 			   try
 				{
 					conn = ds.getConnection();
@@ -84,11 +88,16 @@ public class PostServlet extends HttpServlet {
 					m.setSalary(Double.parseDouble(salary));
 					m.setEvent_Date(event_date);
 					postService.addMessage(m,conn);
+				//	System.out.println("test");
+					String message =  "test message";
+			        SendMail.send(message);
 					response.sendRedirect("post.do");
 					
 				}
 				catch(SQLException e)
 				{
+					//System.out.println("test2");
+
 					log(e.getMessage(), e);
 				}
 				finally
@@ -103,6 +112,8 @@ public class PostServlet extends HttpServlet {
 		}   
 		else
 		{
+		//	System.out.println("test3");
+
 			request.setAttribute("error", "Confirmation password did not match");
 			request.getRequestDispatcher("view/post.jsp").forward(request, response);
 		}

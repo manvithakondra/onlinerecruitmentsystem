@@ -67,6 +67,8 @@ public class PostService {
 				{
 					messages.add(message);
 				}	
+			//	System.out.println("test4");
+
 			}
 			
 		} catch (SQLException e) {
