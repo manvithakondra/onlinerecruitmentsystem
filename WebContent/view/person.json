@@ -8,8 +8,8 @@
       "math": 78
     },
     "gps_location": [{
-        "lat":17.37,
-        "lng":78.49
+        "lat": 17.45,
+        "lng": 7.14
       },
       {
         "address": "Hyderabad"
@@ -26,8 +26,8 @@
       "math": 78
     },
     "gps_location": [{
-        "lat": 8.44,
-        "lng": 68.7
+        "lat": 17.45,
+        "lng": 7.14
       },
       {
         "address": "Hyderabad"

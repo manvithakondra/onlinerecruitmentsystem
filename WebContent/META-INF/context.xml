@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Context>
- <Resource name="jdbc/onlinerecruiter" 
-     type="javax.sql.DataSource" 
-     url="jdbc:mysql://localhost/onlinerecruiter?autoReconnect=true&amp;allowMultiQueries=false"
-     driverClassName="com.mysql.jdbc.Driver"
-     username="root"
-     password="kutcher"
-     >
- </Resource>
+
+<Resource password="root" username="root" 
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost/onlinerecruiter"
+    type="javax.sql.DataSource" 
+    name="jdbc/onlinerecruiter"> 
+   </Resource>
+
 </Context>

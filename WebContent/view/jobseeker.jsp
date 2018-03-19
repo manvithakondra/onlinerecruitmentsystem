@@ -7,7 +7,7 @@
 				         style="font-size:100%;">Jobs<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 
-						<li><a href="view/index.html">Job by Location</a></li>
+						<li><a href="map.do">Job by Location</a></li>
 						<li><a href="job.do">Job by Skill</a></li>
 						<li><a href="job.do">Job by Designation</a></li>
 						<li><a href="job.do">Job by Category</a></li>

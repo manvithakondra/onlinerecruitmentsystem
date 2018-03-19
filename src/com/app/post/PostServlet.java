@@ -67,8 +67,8 @@ public class PostServlet extends HttpServlet {
 		String profile = request.getParameter("profile");
 		String salary = request.getParameter("salary");
 		String event_date = request.getParameter("event_date");
-		System.out.println(percentage+" "+year+" "+degree+" "+branch+" "+designation+" "+address+" "+event_venue+" "+
-		profile+" "+salary+" "+event_date+" ");
+		//System.out.println(percentage+" "+year+" "+degree+" "+branch+" "+designation+" "+address+" "+event_venue+" "+
+		//profile+" "+salary+" "+event_date+" ");
 		if (percentage!=null && year!=null && degree!=null && branch!=null 
 				&& designation!=null && address!=null && event_venue!=null && profile!=null 
 				&& salary!=null && event_date!=null) {
