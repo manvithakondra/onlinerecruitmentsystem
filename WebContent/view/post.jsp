@@ -103,7 +103,7 @@
               </select></p>
  <p> Profile type: <select class="form-control" name="profile" id="profile" >
 			     <option value="pro">IT product</option>
-                 <option value="ser">IT Services</option>
+                 <option value="services">IT Services</option>
                  <option value="sales">sales</option>
                  <option value="bpo">BPO</option>
                  <option value="test">testing</option>
