@@ -1,3 +1,17 @@
+CREATE TABLE `postjob` (
+  `jid` int(10) AUTO_INCREMENT,
+  `percentage` varchar(30),
+  `year` int(10),
+  `degree` varchar(100),
+  `branch` varchar(100),
+  `designation` varchar(100),
+  `address` varchar(100),
+  `event_venue` varchar(100),
+  `profile` varchar(100),
+  `salary` int(100),
+  `event_date` date,
+  PRIMARY KEY (`jid`)
+);
 CREATE TABLE login (
    userid int(11) auto_increment,
    username varchar(100),

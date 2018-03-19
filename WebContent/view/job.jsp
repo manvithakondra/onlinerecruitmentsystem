@@ -105,21 +105,18 @@
 		</div>
 		<div class="modal-body">
 		<div class="form-group">
-			<label for=""></label>
-			<input type="text" name="" placeholder="" class="form-control" required="auto-focus">
+			<label for="percentage"></label>
+			<input type="text" name="p" placeholder="percentage" class="form-control" required="auto-focus">
 		</div>
 		<div class="form-group">
-			<label for=""></label>
-			<input type="text" name="" placeholder="" class="form-control" required="">
+			<label for="branch"></label>
+			<input type="text" name="b" placeholder="branch" class="form-control" required="auto-focus">
 		</div>
 		<div>
-		  <label for=""></label>
-			<input type="text" name="" placeholder="" class="form-control" required="">
+		  <label for="venue preference"></label>
+			<input type="text" name="vp" placeholder="venue preference" class="form-control" required="auto-focus">
 		</div>
-		<div>
-		  <label for=""></label>
-			<input type="text" name="" placeholder="" class="form-control" required="">
-		</div>
+		
 			<p align="center"><button type="submit" class="btn btn-block btn-primary">Apply</button></p>
 	   </div>
 	  </div>

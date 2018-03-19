@@ -52,6 +52,7 @@
 		</nav>
 		
 	</header>
+
 	<script>
 	 function onSubmit(){
 		 alert("job posted successfully");
@@ -99,19 +100,23 @@
                  <option value="pune">Pune</option>
                  <option value="bang">Banglore</option>
                  <option value="che">Chennai</option>
-                 <option value="del">Delhi</option>
+                 <option value="delhi">Delhi</option>
               </select></p>
  <p> Profile type: <select class="form-control" name="profile" id="profile" >
 			     <option value="pro">IT product</option>
-                 <option value="ser">IT Services</option>
+                 <option value="services">IT Services</option>
                  <option value="sales">sales</option>
                  <option value="bpo">BPO</option>
                  <option value="test">testing</option>
               </select></p>
  <p> Salary : <input type="text" class="form-control" name="salary" placeholder="salary" required="" autofocus="" /></p>
  <p> Event Date :<input type="text" class="form-control" name="event_date" placeholder="Event date" required="" autofocus="" /></p>
- <button type="submit" class="btn btn btn-primary" onClick="onSubmit();">Post</button>
+ <button type="submit" class="btn btn btn-primary" onClick="onSubmit();">Post Job</button>
+
  </form>
  </div>
+ 
+	
+	
  
 <%@include file="/common/footer.jspf" %>
