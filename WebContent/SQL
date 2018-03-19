@@ -21,21 +21,6 @@ CREATE TABLE login (
    role varchar(20),
    primary key(userid,email));
 
-CREATE TABLE `postjob` (
-  `jid` int(10) AUTO_INCREMENT,
-  `percentage` varchar(30),
-  `year` int(10),
-  `degree` varchar(100),
-  `branch` varchar(100),
-  `designation` varchar(100),
-  `address` varchar(100),
-  `event_venue` varchar(100),
-  `profile` varchar(100),
-  `salary` int(100),
-  `event_date` date,
-  PRIMARY KEY (`jid`)
-);
-
 CREATE TABLE company(
    cid int(10) auto_increment,
    name varchar(100),
