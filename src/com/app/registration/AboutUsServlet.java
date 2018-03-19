@@ -31,10 +31,11 @@ public class AboutUsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("company");
 		String address = request.getParameter("address");
+		String description = request.getParameter("description");
 		try
 		{
 			conn=ds.getConnection();
-			companyDetails.isCompanyRegistered(name, address, conn);
+			companyDetails.isCompanyRegistered(name, address, description, conn);
 		}
 		catch(Exception e)
 		{

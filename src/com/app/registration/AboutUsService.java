@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class AboutUsService {
 	
-	public boolean isCompanyRegistered(String name,String address, Connection conn) {
+	public boolean isCompanyRegistered(String name,String address,String description, Connection conn) {
 		boolean companyExists=true;
 		try {
 
@@ -24,7 +24,7 @@ public class AboutUsService {
 				else
 				{
 					//System.out.println("sss");
-					String insertSql = "insert into company (name,address) values('" + name + "','" + address + "')";
+					String insertSql = "insert into company (name,address,description) values('" + name + "','" + address + "','" + description + "')";
 					stmt.executeUpdate(insertSql);
 					companyExists=false;
 					return companyExists;
