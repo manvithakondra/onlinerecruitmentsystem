@@ -13,7 +13,7 @@ public class UserAccountService {
 
 private static List<User> userList = new ArrayList<User>();
 	
-	public List<User> retrieveAccountDetails(String username,Connection conn) {
+	public List<User> retrieveAccountDetails(int userid,Connection conn) {
 		userList.clear();
 		try {
 			 
@@ -21,7 +21,7 @@ private static List<User> userList = new ArrayList<User>();
 				ResultSet rs = null;
 
 				Statement stmt = conn.createStatement();
-				String sql = "select role from login where username='"+ username +"'";
+				String sql = "select role from login where userid='"+ userid +"'";
 				System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 
@@ -29,11 +29,11 @@ private static List<User> userList = new ArrayList<User>();
 					
 					while (rs.next()) {
 						User user=new User();
-						//user.setUser_id(rs.getInt("user_id"));
+						user.setUser_id(rs.getInt("user_id"));
 						user.setUsername(rs.getString("username"));
 						user.setFullname(rs.getString("fullname"));
 						user.setEmail(rs.getString("email"));
-						user.setEmail(rs.getString("role"));
+						user.setRole(rs.getString("role"));
 						userList.add(user);
 			        }  
 					

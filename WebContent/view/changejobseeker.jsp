@@ -73,7 +73,7 @@ $('submit').click(function () {
  
  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
  
- 	<form action="register.do" method="post" class="form-signin">
+ 	<form action="account-update.do" method="post" class="form-signin">
 		<p>
 			<font color="red">${error}</font>
 		</p>

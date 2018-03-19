@@ -79,8 +79,10 @@
 					${message.branch}
 					${message.designation}
 					${message.address}
+					
 					${message.profile}
 				  	${message.salary}
+				  	
 					</td>
 				
 				</tr>

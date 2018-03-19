@@ -6,10 +6,11 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 				         style="font-size:100%;">Jobs<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="job.do">Job by Location</a></li>
-						<li><a href="#">Job by Skill</a></li>
-						<li><a href="#">Job by Designation</a></li>
-						<li><a href="#">Job by Category</a></li>
+
+						<li><a href="view/index.html">Job by Location</a></li>
+						<li><a href="job.do">Job by Skill</a></li>
+						<li><a href="job.do">Job by Designation</a></li>
+						<li><a href="job.do">Job by Category</a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
@@ -40,7 +41,7 @@
 				          style="font-size:100%;">Notifications<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Recommendations</a></li>
-						<li><a href="#">Pending Actions</a></li>
+						<li><a href="resumeupload.do">Pending Actions</a></li>
 					</ul>
 				</li>
 			</ul>

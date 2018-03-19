@@ -1,0 +1,37 @@
+[
+  {
+    "firstName": "Bob",
+    "lastName": "Bismark",
+    "age": 12,
+    "marks": {
+      "english": 66,
+      "math": 78
+    },
+    "gps_location": [{
+        "lat":17.37,
+        "lng":78.49
+      },
+      {
+        "address": "Hyderabad"
+      }
+    ]
+  },
+
+  {
+    "firstName": "Smith",
+    "lastName": "Rand",
+    "age": 12,
+    "marks": {
+      "english": 66,
+      "math": 78
+    },
+    "gps_location": [{
+        "lat": 8.44,
+        "lng": 68.7
+      },
+      {
+        "address": "Hyderabad"
+      }
+    ]
+  }
+]

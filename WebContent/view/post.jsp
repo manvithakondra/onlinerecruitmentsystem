@@ -52,11 +52,12 @@
 		</nav>
 		
 	</header>
-	 <script>
-	   function onSubmit(){
-	     alert("Job posted successfully");}
+
+	<script>
+	 function onSubmit(){
+		 alert("job posted successfully");
+	 }
 	</script>
-	     
 	<div class="contanier">
 <h1>       Post Job</h1>
 	

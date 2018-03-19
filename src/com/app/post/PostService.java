@@ -55,7 +55,7 @@ public class PostService {
 	}
 
 	public void addMessage(Message message, Connection conn) {
-		System.out.println("hi");
+		//System.out.println("hi");
 		try {
 			if (conn != null && !conn.isClosed()) {
 
@@ -67,6 +67,8 @@ public class PostService {
 				{
 					messages.add(message);
 				}	
+			//	System.out.println("test4");
+
 			}
 			
 		} catch (SQLException e) {
