@@ -52,6 +52,11 @@
 		</nav>
 		
 	</header>
+	<script>
+	 function onSubmit(){
+		 alert("job posted successfully");
+	 }
+	</script>
 	<div class="contanier">
 <h1>       Post Job</h1>
 	
@@ -105,7 +110,7 @@
               </select></p>
  <p> Salary : <input type="text" class="form-control" name="salary" placeholder="salary" required="" autofocus="" /></p>
  <p> Event Date :<input type="text" class="form-control" name="event_date" placeholder="Event date" required="" autofocus="" /></p>
- <button type="submit" class="btn btn btn-primary" >Post</button>
+ <button type="submit" class="btn btn btn-primary" onClick="onSubmit();">Post</button>
  </form>
  </div>
  

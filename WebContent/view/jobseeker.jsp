@@ -40,7 +40,7 @@
 				          style="font-size:100%;">Notifications<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Recommendations</a></li>
-						<li><a href="#">Pending Actions</a></li>
+						<li><a href="resumeupload.do">Pending Actions</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -60,7 +60,7 @@
 			<input type="text" class="form-control" name="company" placeholder="Company Name" required="" autofocus="" />
 			Address:<textarea name="address" id="address" placeholder="address" required="" autofocus="">  </textarea><br>
 		    Description:<textarea name="description" id="description" placeholder="description" required="" autofocus="">  </textarea>    	      
-      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button> 
+      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Update</button> 
 			    	
 	</form>
  </div>
