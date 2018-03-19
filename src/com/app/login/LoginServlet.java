@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+	        //int user_id=(int) request.getSession().getAttribute("userid");
 		    String username=request.getParameter("name");
 			String password=request.getParameter("password");
 	        try
@@ -55,16 +56,19 @@ public class LoginServlet extends HttpServlet {
 	        		 if(user.getRole().equals("js"))
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/jobseeker.jsp").forward(request, response);
 	        		 }
 	        		 else if(user.getRole().equals("adm"))
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/admin.jsp").forward(request, response);
 	        		 }
 	        		 else
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/recruiter.jsp").forward(request, response);
 	        		 }
 	        		//request.getRequestDispatcher("Views/welcome.jsp").forward(request, response);

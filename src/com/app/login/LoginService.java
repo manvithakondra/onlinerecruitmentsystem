@@ -25,10 +25,10 @@ public class LoginService {
 				rs = pstmt.executeQuery();
 
 				if (rs != null && rs.next()) {
-					
+					user.setUser_id(rs.getInt("userid"));
+					System.out.println(rs.getString("userid"));
 					user.setUsername(rs.getString("username"));
 					//System.out.println(rs.getString("username"));
-
 					user.setRole(rs.getString("role"));
 					//System.out.println(rs.getString("role"));
 					return true;

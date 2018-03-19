@@ -38,7 +38,8 @@ public class ResumeUploadServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int user_id=(int) request.getSession().getAttribute("userid");
+		//System.out.println(request.getSession().getAttribute("user_id"));
+		int user_id=(int) request.getSession().getAttribute("user_id");
 		String name=(String) request.getSession().getAttribute("name");
 		String fileName=SAVE_DIR + File.separator + name+"_"+user_id+".png";
 		
