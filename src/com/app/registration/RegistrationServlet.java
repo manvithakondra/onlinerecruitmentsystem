@@ -36,7 +36,7 @@ public class RegistrationServlet extends HttpServlet {
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
 				String confirm_password = request.getParameter("confirm_password");
-				String type = request.getParameter("type");
+				String role = request.getParameter("role");
 				// check if the page has been submitted:
 				if (password!=null && confirm_password!=null) {
 				    
@@ -58,7 +58,7 @@ public class RegistrationServlet extends HttpServlet {
 						{
 							log(e.getMessage(), e);
 						}
-						boolean isUserRegistered=userRegister.isUserRegistered(name,fullname,email,password,type,conn);
+						boolean isUserRegistered=userRegister.isUserRegistered(name,fullname,email,password,role,conn);
 						if(isUserRegistered)
 						{
 							request.setAttribute("error", "User already registered");

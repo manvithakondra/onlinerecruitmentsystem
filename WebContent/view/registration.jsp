@@ -28,7 +28,7 @@ $('submit').click(function () {
 			<input type="text" class="form-control" name="email" placeholder="Email ID" required="" autofocus="" />
 			<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required=""/>
 			<input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required=""/>
-			<select class="form-control" name="type" id="type" placeholder="select option">
+			<select class="form-control" name="role" id="role" placeholder="select option">
 			     <option value=""></option>
                  <option value="adm">Admin</option>
                  <option value="rec">Recruiter</option>

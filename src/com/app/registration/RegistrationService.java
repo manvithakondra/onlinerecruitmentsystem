@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class RegistrationService {
 	
-	public boolean isUserRegistered(String name,String fullname,String email, String password, String type, Connection conn) {
+	public boolean isUserRegistered(String name,String fullname,String email, String password, String role, Connection conn) {
 		boolean usernameExists=true;
 		try {
 
@@ -25,7 +25,7 @@ public class RegistrationService {
 				else
 				{
 					//System.out.println("sss");
-					String insertSql = "insert into login (username,fullname,email, password, role) values('" + name + "','" + fullname + "','" + email + "', '"+password+"', '"+type+"');";
+					String insertSql = "insert into login (username,fullname,email, password, role) values('" + name + "','" + fullname + "','" + email + "', '"+password+"', '"+role+"');";
 					stmt.executeUpdate(insertSql);
 					usernameExists=false;
 					return usernameExists;

@@ -5,7 +5,7 @@
      url="jdbc:mysql://localhost/onlinerecruiter?autoReconnect=true&amp;allowMultiQueries=false"
      driverClassName="com.mysql.jdbc.Driver"
      username="root"
-     password="root"
+     password="kutcher"
      >
  </Resource>
 </Context>
