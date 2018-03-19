@@ -99,7 +99,7 @@
                  <option value="pune">Pune</option>
                  <option value="bang">Banglore</option>
                  <option value="che">Chennai</option>
-                 <option value="del">Delhi</option>
+                 <option value="delhi">Delhi</option>
               </select></p>
  <p> Profile type: <select class="form-control" name="profile" id="profile" >
 			     <option value="pro">IT product</option>
