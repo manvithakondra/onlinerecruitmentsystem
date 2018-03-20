@@ -36,11 +36,15 @@ public class MapServlet extends HttpServlet {
 			conn = ds.getConnection();
 			
 			
-			int uid=(int)request.getSession().getAttribute("userid");
+			int uid=(int)request.getSession().getAttribute("user_id");
 			AboutUsService service= new AboutUsService();
-			
-			company comp=service.getCompanyDetails(conn,uid);
-			String compData="{'lat':'"+comp.getLat()+"','lng':'"+comp.getlng()+"'}";
+			String compData="";
+			List<company> comps=service.getListOfCompanys(conn);
+			for(company c:comps)
+			{
+				compData="{'lat':'"+c.getLat()+"','lng':'"+c.getlng()+"'}";
+			}
+			System.out.println(compData);
 			request.setAttribute("data", compData);
 		    request.getRequestDispatcher("view/mapLoc.jsp").forward(request, response);
 			

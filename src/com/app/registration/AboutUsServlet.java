@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.maps.GeoApiContext;
+import com.google.maps.GeocodingApi;
+import com.google.maps.model.GeocodingResult;
+
 @WebServlet("/about.do")
 public class AboutUsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,14 +38,33 @@ public class AboutUsServlet extends HttpServlet {
 		String name = request.getParameter("company");
 		String address = request.getParameter("address");
 		String description = request.getParameter("description");
-		String lat=request.getParameter("lat");
-		String lng=request.getParameter("lng");
+		
 		int id=(int)request.getSession().getAttribute("user_id");
+		
 		
 		try
 		{
 			conn=ds.getConnection();
-			companyDetails.isCompanyRegistered(id,name, address, description,lat,lng,conn);
+			GeoApiContext context = new GeoApiContext.Builder().apiKey("AIzaSyCHhAxEqUUzSdNMb8SZibp-G0WlZvrdr_g").build();
+			GeocodingResult[] results =  GeocodingApi.geocode(context,address).await();
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				String lat=gson.toJson(results[0].geometry.location.lat);
+				String lng=gson.toJson(results[0].geometry.location.lng);
+				System.out.println("lat : "+lat);
+			boolean insert=companyDetails.isCompanyRegistered(id,name, address, description,lat,lng,conn);
+			if(!insert)
+			{
+				request.setAttribute("msg", "success");
+				request.setAttribute("success", "Company details added.");
+				request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
+			}
+			else
+			{
+				request.setAttribute("msg", "error");
+				request.setAttribute("error", "Error in adding");
+				request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
+			}
+		
 		}
 		catch(Exception e)
 		{
@@ -47,7 +72,6 @@ public class AboutUsServlet extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
 
 }
 }

@@ -8,7 +8,7 @@ function displayMap()
     var gm = google.maps;
     var pos = new Object(); // var pos = {};
 
-
+/*
     var geocoder = new google.maps.Geocoder();
     var address = "Kmit, Hyderabad";
 
@@ -20,10 +20,10 @@ function displayMap()
         console.log("{'lat':"+latitude+", 'lng':"+longitude+"}");
       } 
     }); 
-   
+   */
 
-
-   var markers = ['${data}'];
+   var o=JSON.parse('${data}'); 
+   var markers = [o];	
     
    // var content = "<b>This is test</b><input value='click' type='button' onclick='test()' />'";
         var content = "<a href='#' data-toggle='modal' data-target='#registerUser'>Register</a>"

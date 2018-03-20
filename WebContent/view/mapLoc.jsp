@@ -11,7 +11,7 @@
 <div class="container">
 <br>
 <br>
-  <h2>Job Location</h2>
+  <h2>Job Location ['${data}'] </h2>
   <div class="panel panel-default">
     <div class="panel-body"><div class="map" id="map"></div>
   </div>
@@ -49,7 +49,7 @@
               </div>
             </div>  
           </div>
-
+          </div>
 
   </body>
 </html>
