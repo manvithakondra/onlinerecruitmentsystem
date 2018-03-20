@@ -2,13 +2,13 @@
 <%@include file="/common/recruiter_navbar.jspf" %>
 	
 
-	<script>
-	 function onSubmit(){
-		 alert("job posted successfully");
-	 }
-	</script>
+	
 	
 	<div class="contanier">
+	
+	
+<font color="green"> ${in} </font>
+	
 		<h1>Post Job</h1>
 	
 	<form action="post.do" method="post" class="form-signin">

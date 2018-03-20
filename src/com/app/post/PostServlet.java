@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 
 import com.app.mailnotification.SendMail;
 
+
 //import com.app.todo.Todo;
 
 
@@ -24,8 +25,8 @@ public class PostServlet extends HttpServlet {
 	@Resource(name = "jdbc/onlinerecruiter")
     private DataSource ds;
 	Connection conn;
-	
-	private PostService postService = new PostService();   
+    Message message=new Message();	
+	private PostService postService = new PostService();  
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -73,6 +74,7 @@ public class PostServlet extends HttpServlet {
 				&& designation!=null && address!=null && event_venue!=null && profile!=null 
 				&& salary!=null && event_date!=null) {
 			//System.out.println("inside");
+			request.getSession().setAttribute("jid", message.getjid());
 			   try
 				{
 					conn = ds.getConnection();

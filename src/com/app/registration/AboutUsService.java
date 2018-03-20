@@ -9,7 +9,7 @@ import com.app.job.company;
 
 public class AboutUsService {
 	
-	public boolean isCompanyRegistered(String name,String address,String description,String lat,String lng,Connection conn) {
+	public boolean isCompanyRegistered(int id,String name,String address,String description,String lat,String lng,Connection conn) {
 		boolean companyExists=true;
 		try {
 
@@ -26,7 +26,7 @@ public class AboutUsService {
 				else
 				{
 					//System.out.println("sss");
-					String insertSql = "insert into company (name,address,description,lat,lng) values('" + name + "','" + address + "','" + description + "','" + lat + "','" + lng + "')";
+					String insertSql = "insert into company (name,address,description,lat,lng,userid) values('" + name + "','" + address + "','" + description + "','" + lat + "','" + lng + "')";
 					stmt.executeUpdate(insertSql);
 					companyExists=false;
 					return companyExists;

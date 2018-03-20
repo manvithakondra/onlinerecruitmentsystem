@@ -7,8 +7,7 @@
 <div class="container">
 	<h1 align="center">List of Jobs</h1>
 	
-
-			<c:forEach items="${messages}" var="message">
+		<c:forEach items="${messages}" var="message">
 			
 			<div class="row">
   				<div class="col-md-12">
@@ -35,14 +34,11 @@
       					</div>
       					<div class="panel-footer">
       					
-      					<form class="form-search"  >
-							<div class="input-append">
-								<!--  <input type="text" class="search-query input-medium" name="keyword"> 
-								<button type="submit" class="btn btn-large">APPLY</button>-->
-								
-								      <button type="submit" data-toggle="modal" data-target="#apply" data-backdrop="static" class="btn btn-primary col-md-offset-11">Apply</button>
-							</div>
-						</form>	
+      							<form action=apply.do method="post">
+      							<input type="hidden" value='${message.jid}' name="jid" />
+								<button type="submit" id="apply" class="btn btn-primary col-md-offset-11">Apply</button>
+								</form>
+							</div>	
       					
       					</div>
   					</div>
@@ -59,25 +55,13 @@
 	 
 	  <div class="modal-content">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		
-			<h4 class="modal-title">Apply</h4>
 		</div>
 		<div class="modal-body">
 		<div class="form-group">
-			<label for="percentage"></label>
-			<input type="text" name="p" placeholder="percentage" class="form-control" required="auto-focus">
+			<p>Applied successfully</p>
 		</div>
-		<div class="form-group">
-			<label for="branch"></label>
-			<input type="text" name="b" placeholder="branch" class="form-control" required="auto-focus">
-		</div>
-		<div>
-		  <label for="venue preference"></label>
-			<input type="text" name="vp" placeholder="venue preference" class="form-control" required="auto-focus">
-		</div>
-		
-			<p align="center"><button type="submit" class="btn btn-block btn-primary">Apply</button></p>
 	   </div>
 	  </div>
 	 </div>

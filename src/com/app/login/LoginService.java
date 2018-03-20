@@ -26,7 +26,8 @@ public class LoginService {
 
 				if (rs != null && rs.next()) {
 					user.setUser_id(rs.getInt("userid"));
-					System.out.println(rs.getString("userid"));
+					
+					//System.out.println(rs.getString("userid"));
 					user.setUsername(rs.getString("username"));
 					//System.out.println(rs.getString("username"));
 					user.setRole(rs.getString("role"));

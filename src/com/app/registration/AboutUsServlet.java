@@ -34,11 +34,12 @@ public class AboutUsServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		String lat=request.getParameter("lat");
 		String lng=request.getParameter("lng");
+		int id=(int)request.getSession().getAttribute("user_id");
 		
 		try
 		{
 			conn=ds.getConnection();
-			companyDetails.isCompanyRegistered(name, address, description,lat,lng,conn);
+			companyDetails.isCompanyRegistered(id,name, address, description,lat,lng,conn);
 		}
 		catch(Exception e)
 		{
