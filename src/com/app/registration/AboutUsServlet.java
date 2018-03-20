@@ -35,7 +35,7 @@ public class AboutUsServlet extends HttpServlet {
 		try
 		{
 			conn=ds.getConnection();
-			companyDetails.isCompanyRegistered(name, address, description, conn);
+			companyDetails.isCompanyRegistered(name, address, description,lat,conn);
 		}
 		catch(Exception e)
 		{
