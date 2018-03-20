@@ -69,6 +69,7 @@ function displayMap()
                 //infowindow.setContent(content);
                 //infowindow.open(map, marker);
                 //$('#registerUser').modal('show');
+        	 
                       var mymodal = $('#registerUser');
                       mymodal.find('.modal-header').html("<h4>" + data.title + "</h4>");
                       mymodal.find('.modal-body').html("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");

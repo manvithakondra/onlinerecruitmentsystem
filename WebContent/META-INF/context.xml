@@ -2,7 +2,7 @@
 
 <Context>
 
-<Resource password="root" username="root" 
+<Resource password="17121981" username="root" 
     driverClassName="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost/onlinerecruiter"
     type="javax.sql.DataSource" 
