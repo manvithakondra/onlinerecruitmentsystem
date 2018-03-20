@@ -23,7 +23,8 @@ import com.app.user.UserAccountService;
 /**
  * Servlet implementation class AccountUpdateServlet
  */
-@WebServlet(urlPatterns="/resumeupload.do", initParams={@WebInitParam(name="basePath", value="/")})
+@WebServlet(urlPatterns="/resumeupload.do", initParams={@WebInitParam(name="basePath", 
+    value="/")})
 public class ResumeUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 //	static final Logger LOG = LoggerFactory.getLogger(AccountUpdateServlet.class);

@@ -52,7 +52,7 @@ public class FileUploadServlet extends HttpServlet {
 			
 			String savePath = appPath + File.separator + SAVE_DIR;
 
-			System.out.println(savePath);
+			//System.out.println(savePath);
 
 			// creates the save directory if it does not exists
 			File fileSaveDir = new File(savePath);
@@ -89,7 +89,7 @@ public class FileUploadServlet extends HttpServlet {
 		String[] items = contentDisp.split(";");
 		for (String s : items) {
 			if (s.trim().startsWith("filename")) {
-				System.out.println("aaaaaa :"+s.substring(s.indexOf(".") , s.length() - 1));
+				//System.out.println("aaaaaa :"+s.substring(s.indexOf(".") , s.length() - 1));
 				return s.substring(s.indexOf(".") , s.length() - 1);
 			}
 		}
