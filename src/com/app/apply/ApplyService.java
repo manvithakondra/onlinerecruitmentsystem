@@ -1,33 +1,35 @@
-package com.app.registration;
+package com.app.apply;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class AboutUsService {
-	
-	public boolean isCompanyRegistered(int id,String name,String address,String description, Connection conn) {
-		boolean companyExists=true;
+public class ApplyService {
+
+	public boolean isApplied(int uid, int jid, Connection conn) {
+		boolean apply=true;
+	//	System.out.println("user id: "+id);
+
 		try {
 
 			if (conn != null && !conn.isClosed()) {
 				ResultSet rs = null;
 				Statement stmt = conn.createStatement();
-				String sql = "select * from company where name='" + name + "'";
+				String sql = "select * from apply where userid='" + uid + "'";
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 				if(rs.next()) {
 					//System.out.println("aaa");
-				  companyExists = true;
+				  apply = true;
 				}
 				else
 				{
 					//System.out.println("sss");
-					String insertSql = "insert into company (name,address,description,userid) values('" + name + "','" + address + "','" + description + "', '"+id+"')";
+					String insertSql = "insert into apply (userid,jid) values('" + uid + "','" + jid + "')";					
 					stmt.executeUpdate(insertSql);
-					companyExists=false;
-					return companyExists;
+					apply=false;
+					return apply;
 				}
 
 			}
@@ -36,8 +38,9 @@ public class AboutUsService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return companyExists;
+		return apply;
 		
 	}
-
+	
+	
 }

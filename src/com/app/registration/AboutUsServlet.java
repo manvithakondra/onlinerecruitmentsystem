@@ -32,10 +32,12 @@ public class AboutUsServlet extends HttpServlet {
 		String name = request.getParameter("company");
 		String address = request.getParameter("address");
 		String description = request.getParameter("description");
+		int id=(int)request.getSession().getAttribute("user_id");
+		
 		try
 		{
 			conn=ds.getConnection();
-			companyDetails.isCompanyRegistered(name, address, description, conn);
+			companyDetails.isCompanyRegistered(id,name, address, description, conn);
 		}
 		catch(Exception e)
 		{
