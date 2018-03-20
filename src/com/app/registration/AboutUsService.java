@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.app.job.company;
+
 public class AboutUsService {
 	
 	public boolean isCompanyRegistered(String name,String address,String description,String lat,String lng,Connection conn) {
@@ -39,5 +41,45 @@ public class AboutUsService {
 		return companyExists;
 		
 	}
+	
+	public company getCompanyDetails(Connection conn, int userid)
+	{
+		company com=new company();
+
+		try {
+			 
+			if (conn != null && !conn.isClosed()) {
+				ResultSet rs = null;
+
+				Statement stmt = conn.createStatement();
+				String sql = "select * from company where userid='"+ userid +"'";
+				System.out.println(sql);
+				rs = stmt.executeQuery(sql);
+
+				if (rs != null) {
+					
+					while (rs.next()) {
+						com.setCid(rs.getInt("cid"));
+						com.setName(rs.getString("name"));
+						com.setAddress(rs.getString("address"));
+						com.setDescription(rs.getString("description"));
+						com.setLat(rs.getString("lat"));
+						com.setLng(rs.getString("lng"));
+
+						
+			        }  
+					
+				}
+					
+			}
+			return com;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return com;
+
+	}
+
 
 }
