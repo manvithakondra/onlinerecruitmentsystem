@@ -44,13 +44,11 @@
       					</div>
   					</div>
 				</div>
+
 			</c:forEach>
-			</div>
+		</div>
 			
 			
-				
-			
-		
 
 <div class="modal fade" id="apply">
 	 <div class="modal-dialog" role="document">
