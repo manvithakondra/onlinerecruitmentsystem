@@ -36,6 +36,7 @@
       					
       							<form action=apply.do method="post">
       							<input type="hidden" value='${message.jid}' name="jid" />
+      				
 								<button type="submit" id="apply" class="btn btn-primary col-md-offset-11">Apply</button>
 								</form>
 							</div>	
@@ -43,11 +44,12 @@
       					</div>
   					</div>
 				</div>
+			</c:forEach>
 			</div>
 			
 			
 				
-			</c:forEach>
+			
 		
 
 <div class="modal fade" id="apply">

@@ -1,3 +1,5 @@
+
+
 package com.app.apply;
 
 import java.io.IOException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.app.post.PostService;
 import com.app.update.EditJobseekerService;
 
 
@@ -23,8 +26,10 @@ public class ApplyServlet extends HttpServlet {
     private DataSource ds;
 	Connection conn;
 	private ApplyService apply= new ApplyService();
+	PostService postservice=new PostService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("messages", postservice.retrieveMessage(conn));
 		request.getRequestDispatcher("view/job.jsp").forward(request, response);
 	}
 
@@ -32,8 +37,9 @@ public class ApplyServlet extends HttpServlet {
 		
 		
 		int jid=Integer.parseInt(request.getParameter("jid"));
-		int uid=Integer.parseInt((String) request.getSession().getAttribute("userid"));
-		
+		//System.out.println(jid);
+		int uid=(int)request.getSession().getAttribute("user_id");
+		//System.out.println(uid);
 		
 		try
 		{
@@ -51,7 +57,7 @@ public class ApplyServlet extends HttpServlet {
 			request.getRequestDispatcher("view/job.jsp").forward(request, response);
 						
 		}
-		else
+		else 
 		{
 			response.sendRedirect("apply.do");
 

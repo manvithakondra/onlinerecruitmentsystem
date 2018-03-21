@@ -28,6 +28,18 @@ public class EditJobseekerServlet extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try
+		{
+			conn = ds.getConnection();
+			request.setAttribute("jobseeker", userRegister.retrieveUpdate(conn));
+			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
+
+		}
+		catch(SQLException e)
+		{
+			log(e.getMessage(), e);
+		}
 		request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 	}
 
@@ -46,20 +58,11 @@ public class EditJobseekerServlet extends HttpServlet {
 		int id=(int)request.getSession().getAttribute("user_id");
 		
 		
-		try
-		{
-			conn = ds.getConnection();
-
-		}
-		catch(SQLException e)
-		{
-			log(e.getMessage(), e);
-		}
+		
 		boolean isUserRegistered=userRegister.isUserRegistered(id,name,location,dateofbirth,gender,percentage,branch,keyskills,experience,email,conn);
 		if(isUserRegistered)
 		{
 			request.setAttribute("error", "User already registered");
-			//request.getSession().setAttribute("jsid", update.getJsid());
 			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 						
 		}
