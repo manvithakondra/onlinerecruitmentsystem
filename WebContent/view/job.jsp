@@ -32,22 +32,24 @@
           					
 							
       					</div>
+      				
       					<div class="panel-footer">
       					
       							<form action=apply.do method="post">
       							<input type="hidden" value='${message.jid}' name="jid" />
+								<font color="green"> ${success} </font>
 								<button type="submit" id="apply" class="btn btn-primary col-md-offset-11">Apply</button>
+								
 								</form>
 							</div>	
       					
       					</div>
   					</div>
 				</div>
+			</c:forEach>
 			</div>
 			
 			
-				
-			</c:forEach>
 		
 
 <div class="modal fade" id="apply">

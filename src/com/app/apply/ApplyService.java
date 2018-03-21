@@ -16,7 +16,7 @@ public class ApplyService {
 			if (conn != null && !conn.isClosed()) {
 				ResultSet rs = null;
 				Statement stmt = conn.createStatement();
-				String sql = "select * from apply where userid='" + uid + "'";
+				String sql = "select * from apply where jid='" + jid + "' and userid='"+uid+"'";
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 				if(rs.next()) {

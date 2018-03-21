@@ -49,6 +49,8 @@ public class EditJobseekerServlet extends HttpServlet {
 		try
 		{
 			conn = ds.getConnection();
+			request.setAttribute("jobseeker", userRegister.retrieveUpdate(conn));
+			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 
 		}
 		catch(SQLException e)
@@ -59,7 +61,6 @@ public class EditJobseekerServlet extends HttpServlet {
 		if(isUserRegistered)
 		{
 			request.setAttribute("error", "User already registered");
-			//request.getSession().setAttribute("jsid", update.getJsid());
 			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 						
 		}
