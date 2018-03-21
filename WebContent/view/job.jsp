@@ -43,12 +43,12 @@
       					</div>
   					</div>
 				</div>
+						</c:forEach>
+			
 			</div>
 			
 			
-				
-			</c:forEach>
-		
+						
 
 <div class="modal fade" id="apply">
 	 <div class="modal-dialog" role="document">

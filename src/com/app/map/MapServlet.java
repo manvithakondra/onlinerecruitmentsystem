@@ -42,7 +42,7 @@ public class MapServlet extends HttpServlet {
 			List<company> comps=service.getListOfCompanys(conn);
 			for(company c:comps)
 			{
-				compData="{'lat':'"+c.getLat()+"','lng':'"+c.getlng()+"'}";
+				compData="{\"lat:\""+c.getLat()+" , \"lng:\""+c.getlng()+"}";
 			}
 			System.out.println(compData);
 			request.setAttribute("data", compData);
