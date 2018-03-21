@@ -18,6 +18,7 @@ import javax.sql.DataSource;
 
 import com.app.job.company;
 import com.app.registration.AboutUsService;
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class MapServlet
@@ -38,14 +39,13 @@ public class MapServlet extends HttpServlet {
 			
 			int uid=(int)request.getSession().getAttribute("user_id");
 			AboutUsService service= new AboutUsService();
-			String compData="";
 			List<company> comps=service.getListOfCompanys(conn);
-			for(company c:comps)
-			{
-				compData="{\"lat:\""+c.getLat()+" , \"lng:\""+c.getlng()+"}";
-			}
-			System.out.println(compData);
-			request.setAttribute("data", compData);
+			
+			Gson gson = new Gson();
+            String json = gson.toJson(comps);
+            System.out.println(json);
+
+			request.setAttribute("data", json);
 		    request.getRequestDispatcher("view/mapLoc.jsp").forward(request, response);
 			
 		

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.app.job.company;
+import com.app.user.User;
 
 public class AboutUsService {
 	
@@ -42,6 +43,25 @@ public class AboutUsService {
 		}
 		return companyExists;
 		
+	}
+	
+	public int updateCompany(company comp, Connection conn) {
+		int update=0;
+		try {
+			if (conn != null && !conn.isClosed()) {
+
+				Statement stmt = conn.createStatement();
+				
+				//String sql = "update login set fullname='"+user.getFullname()+"', email='"+user.getEmail()+"' where user_id="+user.getUser_id();
+				//System.out.println(sql);
+				//update=stmt.executeUpdate(sql);
+	
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return update;
 	}
 	
 	public company getCompanyDetails(Connection conn, int userid)
