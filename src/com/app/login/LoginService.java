@@ -21,7 +21,7 @@ public class LoginService {
 				pstmt.setString(1,name);
 				pstmt.setString(2,password);
 				//pstmt.setString(3,role);
-				System.out.println(pstmt);
+				//System.out.println(pstmt);
 				rs = pstmt.executeQuery();
 
 				if (rs != null && rs.next()) {

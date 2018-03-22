@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.app.post.PostService;
+
+
 
 
 
@@ -26,13 +29,14 @@ public class EditJobseekerServlet extends HttpServlet {
 	private EditJobseekerService userRegister= new EditJobseekerService();
 	
 	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
+		int user_id=(int) request.getSession().getAttribute("user_id");
 		try
 		{
+			System.out.println(user_id);
 			conn = ds.getConnection();
-			request.setAttribute("jobseeker", userRegister.retrieveUpdate(conn));
+			request.setAttribute("jobseeker", userRegister.retrieveUpdate(conn,user_id));
 			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 
 		}
@@ -40,8 +44,9 @@ public class EditJobseekerServlet extends HttpServlet {
 		{
 			log(e.getMessage(), e);
 		}
-		request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
+	
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -56,7 +61,6 @@ public class EditJobseekerServlet extends HttpServlet {
 		String experience = request.getParameter("experience");
 		String email = request.getParameter("email");
 		int id=(int)request.getSession().getAttribute("user_id");
-		
 		
 		
 		boolean isUserRegistered=userRegister.isUserRegistered(id,name,location,dateofbirth,gender,percentage,branch,keyskills,experience,email,conn);
