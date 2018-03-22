@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.app.post.PostService;
+
+
 
 
 
@@ -26,10 +29,24 @@ public class EditJobseekerServlet extends HttpServlet {
 	private EditJobseekerService userRegister= new EditJobseekerService();
 	
 	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
+	
+		int user_id=(int) request.getSession().getAttribute("user_id");
+		try
+		{
+			System.out.println(user_id);
+			conn = ds.getConnection();
+			request.setAttribute("jobseeker", userRegister.retrieveUpdate(conn,user_id));
+			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
+
+		}
+		catch(SQLException e)
+		{
+			log(e.getMessage(), e);
+		}
+	
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -46,20 +63,10 @@ public class EditJobseekerServlet extends HttpServlet {
 		int id=(int)request.getSession().getAttribute("user_id");
 		
 		
-		try
-		{
-			conn = ds.getConnection();
-
-		}
-		catch(SQLException e)
-		{
-			log(e.getMessage(), e);
-		}
 		boolean isUserRegistered=userRegister.isUserRegistered(id,name,location,dateofbirth,gender,percentage,branch,keyskills,experience,email,conn);
 		if(isUserRegistered)
 		{
 			request.setAttribute("error", "User already registered");
-			//request.getSession().setAttribute("jsid", update.getJsid());
 			request.getRequestDispatcher("view/editjobseeker.jsp").forward(request, response);
 						
 		}

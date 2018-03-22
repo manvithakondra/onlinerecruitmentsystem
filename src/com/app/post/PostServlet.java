@@ -58,7 +58,7 @@ public class PostServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String percentage = request.getParameter("percentage");
+		double percentage =Double.parseDouble(request.getParameter("percentage"));
 		String year = request.getParameter("year");
 		String degree = request.getParameter("degree");
 		String branch = request.getParameter("branch");
@@ -70,7 +70,7 @@ public class PostServlet extends HttpServlet {
 		String event_date = request.getParameter("event_date");
 		//System.out.println(percentage+" "+year+" "+degree+" "+branch+" "+designation+" "+address+" "+event_venue+" "+
 		//profile+" "+salary+" "+event_date+" ");
-		if (percentage!=null && year!=null && degree!=null && branch!=null 
+		if (percentage!=0 && year!=null && degree!=null && branch!=null 
 				&& designation!=null && address!=null && event_venue!=null && profile!=null 
 				&& salary!=null && event_date!=null) {
 			//System.out.println("inside");

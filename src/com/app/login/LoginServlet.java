@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 	        	//rs=stmt.executeQuery(sql);
 	        	//System.out.println(rs);
 	        	boolean isUserValid=userValidation.isUserValid(username, password, user,con);
-	        	System.out.println(user.getRole());
+	        	//System.out.println(user.getRole());
 				if(isUserValid)
 	        	{
 				    //System.out.println(username);

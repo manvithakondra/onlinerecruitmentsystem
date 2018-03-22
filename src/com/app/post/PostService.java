@@ -22,7 +22,7 @@ public class PostService {
 
 				Statement stmt = conn.createStatement();
 				String sql = "select * from postjob";
-				System.out.println(sql);
+			//	System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 
 				if (rs != null) {
@@ -30,7 +30,7 @@ public class PostService {
 					while (rs.next()) {
 						Message m=new Message();
 						m.setjid(rs.getInt("jid"));
-						m.setPercentage(rs.getString("percentage"));
+						m.setPercentage(rs.getDouble("percentage"));
 						m.setYear(rs.getInt("year"));
 						m.setDegree(rs.getString("degree"));
 						m.setBranch(rs.getString("branch"));
@@ -50,7 +50,7 @@ public class PostService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(messages.size());
+	//	System.out.println(messages.size());
 		return messages;
 	}
 

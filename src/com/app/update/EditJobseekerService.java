@@ -1,9 +1,14 @@
 package com.app.update;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.app.post.Message;
 
 public class EditJobseekerService {
 
@@ -17,7 +22,7 @@ public class EditJobseekerService {
 			if (conn != null && !conn.isClosed()) {
 				ResultSet rs = null;
 				Statement stmt = conn.createStatement();
-				String sql = "select * from jsdetails where name='" + name + "'";
+				String sql = "select * from jsdetails";
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 				if(rs.next()) {
@@ -43,6 +48,50 @@ public class EditJobseekerService {
 		
 	}
 	
+private static List<Update> jobseeker = new ArrayList<Update>();
 	
+	public Update retrieveUpdate(Connection conn,int user_id) {
+		//jobseeker.clear();
+		Update u=new Update();
+
+		try {
+			 
+			if (conn != null && !conn.isClosed()) {
+				ResultSet rs = null;
+
+				Statement stmt = conn.createStatement();
+				String sql = "select * from jsdetails where userid='"+user_id+"'";
+				//System.out.println(sql);
+				rs = stmt.executeQuery(sql);
+
+				if (rs != null) {
+					
+					while (rs.next()) {
+						//System.out.println("retrieve");
+						u.setJsid(rs.getInt("jsid"));
+						u.setName(rs.getString("name"));
+						u.setLocation(rs.getString("location"));
+						u.setDateofbirth(rs.getString("dateofbirth"));
+						u.setGender(rs.getString("gender"));
+						u.setPercentage(rs.getDouble("percentage"));
+						u.setBranch(rs.getString("branch"));
+						u.setKeyskills(rs.getString("keyskills"));
+						u.setExperience(rs.getString("experience"));
+						u.setEmail(rs.getString("email"));
+						u.setUserid(rs.getInt("userid"));
+						//jobseeker.add(u);
+			        }  
+					
+				}
+					
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//System.out.println(messages.size());
+		return u;
+	}	
 	
 }
+

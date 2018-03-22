@@ -7,7 +7,7 @@ public class Update {
 	private String location;
 	private String dateofbirth;
 	private String gender;
-	private String percentage;
+	private double percentage;
 	private String branch;
 	private String keyskills;
 	private String experience;
@@ -44,10 +44,10 @@ public class Update {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getPercentage() {
+	public double getPercentage() {
 		return percentage;
 	}
-	public void setPercentage(String percentage) {
+	public void setPercentage(double percentage) {
 		this.percentage = percentage;
 	}
 	public String getBranch() {

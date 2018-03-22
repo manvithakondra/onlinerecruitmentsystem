@@ -2,7 +2,7 @@ package com.app.post;
 
 public class Message {
 	int jid;
-	String percentage;
+	double percentage;
 	int year;
 	String degree;
 	String branch;
@@ -19,10 +19,10 @@ public class Message {
 	public void setjid(int jid) {
 		this.jid = jid;
 	}
-	public String getPercentage() {
+	public double getPercentage() {
 		return percentage;
 	}
-	public void setPercentage(String percentage) {
+	public void setPercentage(double percentage) {
 		this.percentage = percentage;
 	}
 	public int getYear() {

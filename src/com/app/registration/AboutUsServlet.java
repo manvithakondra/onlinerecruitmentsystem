@@ -1,5 +1,6 @@
 package com.app.registration;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,7 +29,31 @@ public class AboutUsServlet extends HttpServlet {
 	private AboutUsService companyDetails= new AboutUsService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
+		
+		int user_id=(int) request.getSession().getAttribute("user_id");		
+		try
+		{
+			conn = ds.getConnection();
+			request.setAttribute("company", companyDetails.getCompanyDetails(conn, user_id));
+			request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
+
+			
+		}
+		catch(SQLException e)
+		{
+			log(e.getMessage(), e);
+		}
+		finally
+		{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
 	}
 
 	/**
@@ -55,13 +80,13 @@ public class AboutUsServlet extends HttpServlet {
 			if(!insert)
 			{
 				request.setAttribute("msg", "success");
-				request.setAttribute("success", "Company details added.");
+				request.setAttribute("success", "Company details updated.");
 				request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
 			}
 			else
 			{
 				request.setAttribute("msg", "error");
-				request.setAttribute("error", "Error in adding");
+				request.setAttribute("error", "Error in updating");
 				request.getRequestDispatcher("view/aboutus.jsp").forward(request, response);
 			}
 		

@@ -11,7 +11,7 @@
 <div class="container">
 <br>
 <br>
-  <h2>Job Location ['${data}'] </h2>
+  <h2>Job Location </h2>
   <div class="panel panel-default">
     <div class="panel-body"><div class="map" id="map"></div>
   </div>
@@ -47,9 +47,9 @@
 	    }); 
 	   */
 
-	   var o=JSON.parse('${data}'); 
-	   var markers = [o];	
-	    
+	  
+	   
+	   var markers =JSON.parse('${data}');
 	   // var content = "<b>This is test</b><input value='click' type='button' onclick='test()' />'";
 	        var content = "<a href='#' data-toggle='modal' data-target='#registerUser'>Register</a>"
 	        var map = new gm.Map(document.getElementById('map'), {
@@ -63,11 +63,10 @@
 	        {
 	          var data = markers[p];
 	          var myLatlng = new gm.LatLng(data.lat, data.lng);
-	          console.log(myLatlng)
 	          var marker = new gm.Marker({
 	            position: myLatlng,
 	            map: map,
-	            title: data.title
+	            title: data.name
 	          });
 
 
@@ -79,7 +78,7 @@
 	                //$('#registerUser').modal('show');
 	        	 
 	                      var mymodal = $('#registerUser');
-	                      mymodal.find('.modal-header').html("<h4>" + data.title + "</h4>");
+	                      mymodal.find('.modal-header').html("<h4>" + data.name + "</h4>");
 	                      mymodal.find('.modal-body').html("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
 	                      mymodal.modal('show');
 
