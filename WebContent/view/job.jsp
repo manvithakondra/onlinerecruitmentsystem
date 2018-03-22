@@ -5,6 +5,7 @@
 
 
 <div class="container">
+
 	<h1 align="center">List of Jobs</h1>
 	
 		<c:forEach items="${messages}" var="message">

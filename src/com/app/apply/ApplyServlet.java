@@ -47,12 +47,15 @@ public class ApplyServlet extends HttpServlet {
 		boolean isApplied=apply.isApplied(uid,jid,conn);
 		if(isApplied)
 		{
-			request.setAttribute("error", "User already registered");
+			request.setAttribute("message", "error");
+			request.setAttribute("error", "not applied");
 			request.getRequestDispatcher("view/job.jsp").forward(request, response);
 						
 		}
 		else
 		{
+			request.setAttribute("message", "success");
+			request.setAttribute("success", "applied successfully");
 			response.sendRedirect("apply.do");
 
 		}
