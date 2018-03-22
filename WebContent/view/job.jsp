@@ -5,11 +5,7 @@
 
 
 <div class="container">
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> branch 'master' of https://github.com/manvithakondra/onlinerecruitmentsystem.git
 	<h1 align="center">List of Jobs</h1>
 	
 		<c:forEach items="${messages}" var="message">

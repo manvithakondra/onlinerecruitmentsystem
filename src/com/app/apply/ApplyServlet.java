@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.app.post.Message;
 import com.app.post.PostService;
 //import com.app.update.EditJobseekerService;
+import com.app.update.Update;
 
 
 @WebServlet("/apply.do")
@@ -24,6 +26,7 @@ public class ApplyServlet extends HttpServlet {
     private DataSource ds;
 	Connection conn;
 	private ApplyService apply= new ApplyService();
+	private Shortlist shortlist= new Shortlist();
 	PostService postservice=new PostService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,33 +54,32 @@ public class ApplyServlet extends HttpServlet {
 		boolean isApplied=apply.isApplied(uid,jid,conn);
 		if(isApplied)
 		{
-<<<<<<< HEAD
+
+			
 			request.setAttribute("message", "error");
 			request.setAttribute("error", "not applied");
 			request.getRequestDispatcher("view/job.jsp").forward(request, response);
-=======
-			request.setAttribute("msg", "error");
-			request.setAttribute("error", "cannot apply");
 			response.sendRedirect("apply.do");
+			//System.out.println("if");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
->>>>>>> branch 'master' of https://github.com/manvithakondra/onlinerecruitmentsystem.git
 						
 		}
 		else
 
 		{
-<<<<<<< HEAD
-			request.setAttribute("message", "success");
-			request.setAttribute("success", "applied successfully");
-=======
+		//	System.out.println("else");
+			Message m=shortlist.jobRetrieve( jid, conn);
+			Update u=shortlist.userRetrieve( uid, conn);
+			System.out.println(u.getPercentage());
+			shortlist.compare(m, u, uid);
 			request.setAttribute("msg", "success");
 			request.setAttribute("success", "applied successfully");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
->>>>>>> branch 'master' of https://github.com/manvithakondra/onlinerecruitmentsystem.git
 			response.sendRedirect("apply.do");
 
 
 		}
+		
 	}
 
 	}
