@@ -51,18 +51,29 @@ public class ApplyServlet extends HttpServlet {
 		boolean isApplied=apply.isApplied(uid,jid,conn);
 		if(isApplied)
 		{
+<<<<<<< HEAD
+			request.setAttribute("message", "error");
+			request.setAttribute("error", "not applied");
+			request.getRequestDispatcher("view/job.jsp").forward(request, response);
+=======
 			request.setAttribute("msg", "error");
 			request.setAttribute("error", "cannot apply");
 			response.sendRedirect("apply.do");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
+>>>>>>> branch 'master' of https://github.com/manvithakondra/onlinerecruitmentsystem.git
 						
 		}
 		else
 
 		{
+<<<<<<< HEAD
+			request.setAttribute("message", "success");
+			request.setAttribute("success", "applied successfully");
+=======
 			request.setAttribute("msg", "success");
 			request.setAttribute("success", "applied successfully");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
+>>>>>>> branch 'master' of https://github.com/manvithakondra/onlinerecruitmentsystem.git
 			response.sendRedirect("apply.do");
 
 
