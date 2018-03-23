@@ -2,11 +2,46 @@
 <%@include file="/common/header.jspf" %>
 <%@include file="/common/jobseeker_navbar.jspf" %>
 
+<script type="text/javascript">
+function result()
+{
+	
+}
+
+</script>
 
 
 <div class="container">
 
 	<h1 align="center">List of Jobs</h1>
+	
+	
+	<% 
+	System.out.println("JSP : "+ request.getSession().getAttribute("msg"));
+	if(request.getSession().getAttribute("msg")!=null)
+	{
+	if(request.getSession().getAttribute("msg").equals("success"))
+	{
+		%>
+		<div class="alert alert-success alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> ${success}
+	</div>
+	<%
+	}
+	else
+	{
+	%>
+		<div class="alert alert-danger alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error!</strong> ${error}
+	</div>
+	<%
+	}
+	}
+		
+		%>  					
+    
 	
 		<c:forEach items="${messages}" var="message">
 		
@@ -36,38 +71,11 @@
 							
       					</div>
       					<div class="panel-footer">
-    <div class="container">
-	<% 
-	
-	if(request.getAttribute("msg")!=null)
-	{
-	if(request.getAttribute("msg").equals("success"))
-	{
-		%>
-		<div class="alert alert-success alert-dismissible fade in">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Success!</strong> ${success}
-	</div>
-	<%
-	}
-	else
-	{
-	%>
-		<div class="alert alert-danger alert-dismissible fade in">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Error!</strong> ${error}
-	</div>
-	<%
-	}
-	}
-		
-		%>  					
-      							<form action=apply.do method="post">
+	  							<form action=apply.do method="post">
       							<input type="hidden" value='${message.jid}' name="jid" />
       				
 								<button type="submit" id="apply" class="btn btn-primary col-md-offset-11" >Apply</button>
 								</form>
-							</div>	
       					
       					</div>
   					</div>
@@ -79,28 +87,5 @@
 			
 			
 
-<div class="modal fade" id="apply">
-	 <div class="modal-dialog" role="document">
-	 
-	  <div class="modal-content">
-		<div class="modal-header">
-			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		
-		</div>
-		<div class="modal-body">
-		<div class="form-group">
-			<p>Applied successfully</p>
-		</div>
-	   </div>
-	  </div>
-	 </div>
-	</div>			
-			
-		
-	<p>
-		<font color="red">${errorMessage}</font>
-	</p>
-
-</div>
 
 <%@include file="/common/footer.jspf"%>
