@@ -3,7 +3,7 @@
 <Context>
 
 
-<Resource password="root" username="root" 
+<Resource password="kutcher" username="root" 
 
     driverClassName="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost/onlinerecruiter"

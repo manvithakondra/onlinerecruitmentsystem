@@ -4,7 +4,7 @@
 <div class="container">
  <h1 align="center">JOB SEEKERS</h1>
  
- <c:forEach items="${jobseeker}" var="j">
+ <!--  <c:forEach items="${jobseeker}" var="j">-->
 			
 			<div class="row">
   				<div class="col-md-12">
@@ -13,17 +13,17 @@
       					<div class="panel-body">
       					<div class="row">
             					<div class="col-md-6">
-            					<p> Name : ${j.name} </p>
-								<p> Location : ${j.location} </p>
-								<p> DateOfBirth : ${j.dateofbirth} </p>
-								<p> Gender : ${j.gender} </p>
+            					<p> Name : ${jobseeker.name} </p>
+								<p> Location : ${jobseeker.location} </p>
+								<p> DateOfBirth : ${jobseeker.dateofbirth} </p>
+								<p> Gender : ${jobseeker.gender} </p>
             					</div>
             					<div class="col-md-6">
-            					<p> Percentage : ${j.percentage} </p>
-								<p> Branch : ${j.branch} </p>
-	                            <p> KeySkills : ${j.keyskills} </p>					
-								<p> Experience : ${j.experience}  </p>
-					  			<p> E-mail : ${j.email} </p>
+            					<p> Percentage : ${jobseeker.percentage} </p>
+								<p> Branch : ${jobseeker.branch} </p>
+	                            <p> KeySkills : ${jobseeker.keyskills} </p>					
+								<p> Experience : ${jobseeker.experience}  </p>
+					  			<p> E-mail : ${jobseeker.email} </p>
             					</div>
         					</div> 
           					
