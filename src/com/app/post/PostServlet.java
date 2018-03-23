@@ -2,7 +2,10 @@ package com.app.post;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import com.app.mailnotification.SendMail;
+import com.app.update.Update;
 
 
 //import com.app.todo.Todo;
@@ -79,6 +83,7 @@ public class PostServlet extends HttpServlet {
 				{
 					conn = ds.getConnection();
 					Message m=new Message();
+					Update u=new Update();
 					m.setPercentage(percentage);
 					m.setYear(Integer.parseInt(year));
 					m.setDegree(degree);
@@ -92,7 +97,8 @@ public class PostServlet extends HttpServlet {
 					postService.addMessage(m,conn);
 				//	System.out.println("test");
 					String message =  "test message";
-			        SendMail.send(message);
+					String[] allemail= postService.retrieveEmail(conn);
+			        SendMail.sendToAll(message,allemail);
 					response.sendRedirect("post.do");
 					
 				}

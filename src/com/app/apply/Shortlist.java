@@ -1,6 +1,5 @@
 package com.app.apply;
 
-import com.app.user.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,12 +25,12 @@ public class Shortlist {
 				String sql = "select * from postjob where jid='" + jid + "'"; 
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
-				if(rs!=null) {
+				if(rs!=null && rs.next()) {
 					
 				    m.setPercentage(rs.getDouble("percentage"));
 				}
 			}
-		//	conn.close();
+			//conn.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -40,23 +39,26 @@ public class Shortlist {
 		//return u;
 	}
 	public Update userRetrieve(int uid, Connection conn) {
-	//	System.out.println("user id: "+id);
+	//	System.out.println("user id: "+uid);
 		
 
 		try {
-
+			//System.out.println("con");
 			if (conn != null && !conn.isClosed()) {
 				ResultSet rs = null;
 				Statement stmt = conn.createStatement();
+				//System.out.println("if");
 				String sql = "select * from jsdetails where userid='" + uid + "'"; 
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
-				if(rs!=null) {
+				if(rs!=null && rs.next()) {
 					
 				    u.setPercentage(rs.getDouble("percentage"));
+				    u.setEmail(rs.getString("email"));
 				}
+				//System.out.println(u.getPercentage());
 			}
-		//	conn.close();
+			conn.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -65,14 +67,15 @@ public class Shortlist {
 		//return u;
 	}
 	public void compare(Message m, Update u,int uid) {
+		//System.out.println(m.getPercentage());
+		//System.out.println("percentage:"+u.getPercentage());
 		if(u.getPercentage()<m.getPercentage()) {
-			String sql="delete * from apply where userid='"+uid+"'";
 			String message =  "view/reject.html";
-			SendMail.send(message);
+			SendMail.send(message,u.getEmail());
 		}
 		else {
 			String message =  "view/accept.html";
-			SendMail.send(message);
+			SendMail.send(message,u.getEmail());
 		}
 		
 	}

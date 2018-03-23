@@ -22,11 +22,11 @@ public class EditJobseekerService {
 			if (conn != null && !conn.isClosed()) {
 				ResultSet rs = null;
 				Statement stmt = conn.createStatement();
-				String sql = "select * from jsdetails";
+				String sql = "select * from jsdetails where userid='"+id+"'";
 				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 				if(rs.next()) {
-					//System.out.println("aaa");
+					System.out.println(rs.getString("name"));
 				  usernameExists = true;
 				}
 				else

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
 
+import com.app.update.Update;
+
 public class PostService {
 		
 	private static List<Message> messages = new ArrayList<Message>();
@@ -54,6 +56,43 @@ public class PostService {
 		return messages;
 	}
 
+private static List<String> email = new ArrayList<String>();
+	
+	public String[] retrieveEmail(Connection conn) {
+		//email.clear();
+		String[] allEmails= new String[10];
+		try {
+			 
+			if (conn != null && !conn.isClosed()) {
+				ResultSet rs = null;
+
+				Statement stmt = conn.createStatement();
+				String sql = "select * from jsdetails";
+			//	System.out.println(sql);
+				rs = stmt.executeQuery(sql);
+				
+				if (rs != null) {
+					int i=0;
+					while (rs.next()) {
+						Update u=new Update();
+						//u.setEmail(rs.getString("email"));
+						System.out.println(rs.getString("email"));
+						allEmails[i]=rs.getString("email");
+						i++;
+			        }  
+					
+				}
+					
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	//	System.out.println(messages.size());
+		return allEmails;
+	}
+
+	
 	public void addMessage(Message message, Connection conn) {
 		//System.out.println("hi");
 		try {

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/mail.do")
 public class MailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,8 +32,8 @@ public class MailServlet extends HttpServlet {
         
         //String name = request.getParameter("name");
         //String password = request.getParameter("password");
-        String message =  "test message";
-        SendMail.send(message);
+       // String message =  "test message";
+        //SendMail.sendToAll(message,);
 		request.getRequestDispatcher("result.html").forward(request, response);
 
         
