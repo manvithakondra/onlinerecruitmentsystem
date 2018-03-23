@@ -33,6 +33,7 @@ public class ManageJobseekerServlet extends HttpServlet {
 			//System.out.println(user_id);
 			conn = ds.getConnection();
 			request.setAttribute("jobseeker", userRegister.retrieveAllUpdate(conn));
+			
 			request.getRequestDispatcher("view/managejobseeker.jsp").forward(request, response);
 
 		}

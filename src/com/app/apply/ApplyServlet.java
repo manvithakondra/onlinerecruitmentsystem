@@ -30,7 +30,18 @@ public class ApplyServlet extends HttpServlet {
 	PostService postservice=new PostService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try
+		{
+			conn = ds.getConnection();
+
+		}
+		catch(SQLException e)
+		{
+			log(e.getMessage(), e);
+		}
+		
 		request.setAttribute("messages", postservice.retrieveMessage(conn));
+		System.out.println("doGet");
 		request.getRequestDispatcher("view/job.jsp").forward(request, response);
 	}
 
@@ -56,9 +67,9 @@ public class ApplyServlet extends HttpServlet {
 		{
 
 			
-			request.setAttribute("message", "error");
-			request.setAttribute("error", "not applied");
-			request.getRequestDispatcher("view/job.jsp").forward(request, response);
+			request.getSession().setAttribute("message", "error");
+			request.getSession().setAttribute("error", "not applied");
+			//request.getRequestDispatcher("view/job.jsp").forward(request, response);
 			response.sendRedirect("apply.do");
 			//System.out.println("if");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
@@ -72,8 +83,8 @@ public class ApplyServlet extends HttpServlet {
 			Update u=shortlist.userRetrieve( uid, conn);
 			System.out.println(u.getPercentage());
 			shortlist.compare(m, u, uid);
-			request.setAttribute("msg", "success");
-			request.setAttribute("success", "applied successfully");
+			request.getSession().setAttribute("msg", "success");
+			request.getSession().setAttribute("success", "applied successfully");
 			//request.getRequestDispatcher("apply.do").forward(request, response);
 			response.sendRedirect("apply.do");
 

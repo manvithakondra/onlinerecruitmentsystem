@@ -32,7 +32,7 @@ private static List<Update> jobseeker = new ArrayList<Update>();
 					while (rs.next()) {
 						//System.out.println("retrieve");
 						u.setJsid(rs.getInt("jsid"));
-						//u.setName(rs.getString("name"));
+						u.setName(rs.getString("name"));
 						u.setLocation(rs.getString("location"));
 						u.setDateofbirth(rs.getString("dateofbirth"));
 						u.setGender(rs.getString("gender"));
@@ -57,7 +57,6 @@ private static List<Update> jobseeker = new ArrayList<Update>();
 	}	
 	public List<Update> retrieveAllUpdate(Connection conn) {
 		jobseeker.clear();
-		Update u=new Update();
 
 		try {
 			 
@@ -72,7 +71,8 @@ private static List<Update> jobseeker = new ArrayList<Update>();
 				if (rs != null ) {
 					
 					while (rs.next()) {
-						//System.out.println("retrieve");
+						Update u=new Update();
+						System.out.println(rs.getString("name"));
 						u.setJsid(rs.getInt("jsid"));
 						u.setName(rs.getString("name"));
 						u.setLocation(rs.getString("location"));

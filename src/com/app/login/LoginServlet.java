@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 //import java.sql.ResultSet;
 //import java.sql.Statement;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -56,18 +57,27 @@ public class LoginServlet extends HttpServlet {
 	        		 if(user.getRole().equals("js"))
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("csrfToken", generateCSRFToken());
+	        			String sessionid=request.getSession().getId();
+	        			response.setHeader("Set-Cookie","JSESSIONID="+ sessionid +";");
 	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/jobseeker.jsp").forward(request, response);
 	        		 }
 	        		 else if(user.getRole().equals("adm"))
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("csrfToken", generateCSRFToken());
+	        			String sessionid=request.getSession().getId();
+	        			response.setHeader("Set-Cookie","JSESSIONID="+ sessionid +";");
 	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/admin.jsp").forward(request, response);
 	        		 }
 	        		 else
 	        		 {
 	        			request.getSession().setAttribute("name", user.getUsername());
+	        			request.getSession().setAttribute("csrfToken", generateCSRFToken());
+	        			String sessionid=request.getSession().getId();
+	        			response.setHeader("Set-Cookie","JSESSIONID="+ sessionid +";");
 	        			request.getSession().setAttribute("user_id", user.getUser_id());
 	        			request.getRequestDispatcher("view/recruiter.jsp").forward(request, response);
 	        		 }
@@ -88,4 +98,8 @@ public class LoginServlet extends HttpServlet {
 			
 	}
 
+	public static String generateCSRFToken() {
+		String token=UUID.randomUUID().toString();
+		return token;
+	}
 }
