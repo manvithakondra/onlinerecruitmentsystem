@@ -7,7 +7,33 @@
 	<div class="contanier">
 	
 	
-<font color="green"> ${in} </font>
+<% 
+	
+	if(request.getAttribute("msg")!=null)
+	{
+	if(request.getAttribute("msg").equals("success"))
+	{
+		%>
+		<div class="alert alert-success alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> ${success}
+	</div>
+	<%
+	}
+	else
+	{
+	%>
+		<div class="alert alert-danger alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error!</strong> ${error}
+	</div>
+	<%
+	}
+	}
+		
+		%>
+ 
+
 	
 		<h1>Post Job</h1>
 	

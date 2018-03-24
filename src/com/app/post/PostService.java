@@ -58,9 +58,9 @@ public class PostService {
 
 private static List<String> email = new ArrayList<String>();
 	
-	public String[] retrieveEmail(Connection conn) {
-		//email.clear();
-		String[] allEmails= new String[10];
+	public List<String> retrieveEmail(Connection conn) {
+		email.clear();
+		//String[] allEmails= new String[10];
 		try {
 			 
 			if (conn != null && !conn.isClosed()) {
@@ -72,13 +72,14 @@ private static List<String> email = new ArrayList<String>();
 				rs = stmt.executeQuery(sql);
 				
 				if (rs != null) {
-					int i=0;
+					//int i=0;
 					while (rs.next()) {
-						Update u=new Update();
+						//Update u=new Update();
 						//u.setEmail(rs.getString("email"));
-						System.out.println(rs.getString("email"));
-						allEmails[i]=rs.getString("email");
-						i++;
+						email.add(rs.getString("email"));
+						//System.out.println(rs.getString("email"));
+						//allEmails[i]=rs.getString("email");
+						//i++;
 			        }  
 					
 				}
@@ -89,7 +90,7 @@ private static List<String> email = new ArrayList<String>();
 			e.printStackTrace();
 		}
 	//	System.out.println(messages.size());
-		return allEmails;
+		return email;
 	}
 
 	

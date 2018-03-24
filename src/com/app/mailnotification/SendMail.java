@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMail {
 
-	public static void sendToAll(String msg,String[] email1) {
+	public static void sendToAll(String msg,List<String> email) {
 		// create an instance of Properties Class
 		Properties props = new Properties();
 
@@ -43,15 +43,16 @@ public class SendMail {
 			 * Create an instance of MimeMessage, it accept MIME types and
 			 * headers
 			 */
-           String[] email= {"manvithareddyk@gmail.com","srikanthreddy.kmit@gmail.com","sasaank.sss@gmail.com"};
+           //String[] email= {"scott2srikanth@gmail.com","srikanthreddy.kmit@gmail.com"};
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("recruitmentonline15@gmail.com"));
 			
-            InternetAddress[] toAddress = new InternetAddress[email.length];
+            InternetAddress[] toAddress = new InternetAddress[email.size()];
 
             // To get the array of addresses
-            for( int i = 0; i < email.length; i++ ) {
-                toAddress[i] = new InternetAddress(email[i]);
+            for( int i = 0; i < email.size(); i++ ) {
+            		System.out.println(email.get(i));
+                toAddress[i] = new InternetAddress(email.get(i));
             }
 
             for( int i = 0; i < toAddress.length; i++) {

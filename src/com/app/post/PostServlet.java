@@ -97,9 +97,11 @@ public class PostServlet extends HttpServlet {
 					postService.addMessage(m,conn);
 				//	System.out.println("test");
 					String message =  "test message";
-					String[] allemail= postService.retrieveEmail(conn);
+					List<String> allemail= postService.retrieveEmail(conn);
 			        SendMail.sendToAll(message,allemail);
-					response.sendRedirect("post.do");
+			        request.setAttribute("msg", "success");
+					request.setAttribute("success", "posted job done.");
+					request.getRequestDispatcher("view/post.jsp").forward(request, response);
 					
 				}
 				catch(SQLException e)
@@ -121,8 +123,8 @@ public class PostServlet extends HttpServlet {
 		else
 		{
 		//	System.out.println("test3");
-
-			request.setAttribute("error", "Confirmation password did not match");
+			request.setAttribute("msg", "error");
+			request.setAttribute("error", "while posting job");
 			request.getRequestDispatcher("view/post.jsp").forward(request, response);
 		}
 	}
