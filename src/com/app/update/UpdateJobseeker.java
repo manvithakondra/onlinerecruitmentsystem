@@ -1,6 +1,6 @@
 package com.app.update;
 
-public class Update {
+public class UpdateJobseeker {
 
 	private int jsid;
 	private String name;

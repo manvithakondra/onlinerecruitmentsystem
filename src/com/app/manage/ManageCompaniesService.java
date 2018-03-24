@@ -1,4 +1,4 @@
-package com.app.registration;
+package com.app.manage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +9,8 @@ import java.util.List;
 
 import com.app.job.company;
 
-public class AboutCompaniesServices {
+public class ManageCompaniesService {
+
 private static List<company> company = new ArrayList<company>();
 	
 	public List<company> retrieveAllCompanies(Connection conn) {
@@ -45,5 +46,5 @@ private static List<company> company = new ArrayList<company>();
 		
 		return company;
 	}
-
+	
 }

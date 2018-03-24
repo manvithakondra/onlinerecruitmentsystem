@@ -48,11 +48,11 @@ public class EditJobseekerService {
 		
 	}
 	
-private static List<Update> jobseeker = new ArrayList<Update>();
+private static List<UpdateJobseeker> jobseeker = new ArrayList<UpdateJobseeker>();
 	
-	public Update retrieveUpdate(Connection conn,int user_id) {
+	public UpdateJobseeker retrieveUpdate(Connection conn,int user_id) {
 		//jobseeker.clear();
-		Update u=new Update();
+		UpdateJobseeker u=new UpdateJobseeker();
 
 		try {
 			 

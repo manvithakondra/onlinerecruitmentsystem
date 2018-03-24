@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="/common/header.jspf" %>
-<%@include file="/common/admin_navbar.jspf" %>
+<%@include file="/common/jobseeker_navbar.jspf" %>
 
 <div class="container">
- <h1 align="center">JOB SEEKERS</h1>
+ <h1 align="center">List of JobSeekers Applied</h1>
  
 
        <c:forEach items="${jobseeker}" var="jobseeker1">
@@ -40,4 +40,3 @@
 </div>
 	
 <%@include file="/common/footer.jspf" %>
-

@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.app.post.PostService;
-
-
+//import com.app.update.UpdateJobseeker;
 
 
 
@@ -25,7 +23,7 @@ public class EditJobseekerServlet extends HttpServlet {
 	@Resource(name = "jdbc/onlinerecruiter")
     private DataSource ds;
 	Connection conn;
-	Update update=new Update();
+	UpdateJobseeker update=new UpdateJobseeker();
 	private EditJobseekerService userRegister= new EditJobseekerService();
 	
 	

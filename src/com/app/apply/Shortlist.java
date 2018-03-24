@@ -8,12 +8,12 @@ import java.sql.Statement;
 
 import com.app.mailnotification.SendMail;
 import com.app.post.Message;
-import com.app.update.Update;
+import com.app.update.UpdateJobseeker;
 
 public class Shortlist {
 
 	Message m=new Message();
-	Update u=new Update();
+	UpdateJobseeker u=new UpdateJobseeker();
 	public Message jobRetrieve(int jid, Connection conn) {
 	//	System.out.println("user id: "+id);
 		
@@ -38,7 +38,7 @@ public class Shortlist {
 		return m;
 		//return u;
 	}
-	public Update userRetrieve(int uid, Connection conn) {
+	public UpdateJobseeker userRetrieve(int uid, Connection conn) {
 	//	System.out.println("user id: "+uid);
 		
 
@@ -66,7 +66,7 @@ public class Shortlist {
 		return u;
 		//return u;
 	}
-	public void compare(Message m, Update u,int uid) {
+	public void compare(Message m, UpdateJobseeker u,int uid) {
 		//System.out.println(m.getPercentage());
 		//System.out.println("percentage:"+u.getPercentage());
 		if(u.getPercentage()<m.getPercentage()) {

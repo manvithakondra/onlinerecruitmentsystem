@@ -50,3 +50,12 @@ CREATE TABLE apply(
    userid int(10),
    jid int(10),
    status int(10));
+
+create table recdetails(
+   recid int(10) not null auto_increment,
+   name varchar(100),
+   location varchar(100),
+   industry varchar(100),
+   email varchar(100),
+   userid int(100),
+   primary key(recid));

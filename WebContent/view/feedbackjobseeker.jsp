@@ -13,7 +13,7 @@
 <body style="background-color:PeachPuff;">
   <h1 align="center" style="color:blue;">Submit an Idea !</h1>
   <center>
-    <textarea rows=20 cols=100></textarea><br>
+    <textarea rows=10 cols=80 autofocus=""></textarea><br><br>
     <button class="btn btn-primary" type="submit" onClick="idea();">submit</button> 
   
   </center>

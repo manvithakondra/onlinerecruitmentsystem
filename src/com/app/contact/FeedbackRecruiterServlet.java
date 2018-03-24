@@ -7,14 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/help.do")
-public class HelpServlet extends HttpServlet {
+/**
+ * Servlet implementation class FeedbackServlet
+ */
+@WebServlet("/feedbackrecruiter.do")
+public class FeedbackRecruiterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("view/help.jsp").forward(request, response);
+		request.getRequestDispatcher("view/feedbackrecruiter.jsp").forward(request, response);
 	}
 
 	/**
@@ -22,7 +24,7 @@ public class HelpServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("view/help.jsp").forward(request, response);
+		request.getRequestDispatcher("view/feedbackrecruiter.jsp").forward(request, response);
 	}
 
 }

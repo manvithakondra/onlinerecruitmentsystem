@@ -7,13 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.app.update.Update;
+import com.app.update.UpdateJobseeker;
 
 public class ManageJobseekerService {
 
-private static List<Update> jobseeker = new ArrayList<Update>();
+private static List<UpdateJobseeker> jobseeker = new ArrayList<UpdateJobseeker>();
 	
-	public Update retrieveUpdate(Connection conn) {
+	/*public Update retrieveUpdate(Connection conn) {
 		//jobseeker.clear();
 		Update u=new Update();
 
@@ -54,8 +54,8 @@ private static List<Update> jobseeker = new ArrayList<Update>();
 		}
 		//System.out.println(messages.size());
 		return u;
-	}	
-	public List<Update> retrieveAllUpdate(Connection conn) {
+	}*/	
+	public List<UpdateJobseeker> retrieveAllUpdate(Connection conn) {
 		jobseeker.clear();
 
 		try {
@@ -71,7 +71,7 @@ private static List<Update> jobseeker = new ArrayList<Update>();
 				if (rs != null ) {
 					
 					while (rs.next()) {
-						Update u=new Update();
+						UpdateJobseeker u=new UpdateJobseeker();
 						System.out.println(rs.getString("name"));
 						u.setJsid(rs.getInt("jsid"));
 						u.setName(rs.getString("name"));
