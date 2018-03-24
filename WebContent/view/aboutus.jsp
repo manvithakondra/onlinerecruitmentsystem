@@ -34,7 +34,7 @@
 		
 			Company Name:<input type="text" class="form-control" name="company"  placeholder="Company Name" value="${company.name}" required="" autofocus="" />
 			Address:<input type="text" class="form-control" name="address" id="address" placeholder="address" value="${company.address}" required="" autofocus="" />
-		    Description:<textarea class="form-control" name="description" id="description"  placeholder="description" value="${company.description}" required="" autofocus="">  </textarea>   <br> 	      
+		    Description:${company.description}<textarea class="form-control" name="description" id="description"  placeholder="description" required="" autofocus=""> ${company.description} </textarea>   <br> 	      
       <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Update</button> 
 			    	
 	</form>

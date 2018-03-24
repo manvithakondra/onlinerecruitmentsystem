@@ -1,4 +1,4 @@
-package com.app.manage;
+package com.app.apply;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,28 +12,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.app.update.EditJobseekerService;
+import com.app.manage.ManageJobseekerService;
 import com.app.update.UpdateJobseeker;
 
-
-@WebServlet("/managejobseeker.do")
-public class ManageJobseekerServlet extends HttpServlet {
+/**
+ * Servlet implementation class JobseekerServlet
+ */
+@WebServlet(name = "JobseekerListServlet", urlPatterns = { "/jobseekerlist.do" })
+public class JobseekerListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Resource(name = "jdbc/onlinerecruiter")
     private DataSource ds;
 	Connection conn;
 	UpdateJobseeker update=new UpdateJobseeker();
-	private ManageJobseekerService userRegister= new ManageJobseekerService();   
-	
+	private JobseekerListService jslist= new JobseekerListService();  
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id=(int) request.getSession().getAttribute("user_id");
 		try
 		{
-			//System.out.println(user_id);
+			System.out.println(id);
 			conn = ds.getConnection();
-			request.setAttribute("jobseeker", userRegister.retrieveAllUpdate(conn));
-			request.getRequestDispatcher("view/managejobseeker.jsp").forward(request, response);
+			request.setAttribute("jobseeker", jslist.retrieveAllUpdate(id,conn));
+			request.getRequestDispatcher("view/jobseekerlist.jsp").forward(request, response);
 
 		}
 		catch(SQLException e)
@@ -46,7 +48,7 @@ public class ManageJobseekerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("view/managejobseeker.jsp").forward(request, response);
+		request.getRequestDispatcher("view/jobseekerlist.jsp").forward(request, response);
 	}
 
 }

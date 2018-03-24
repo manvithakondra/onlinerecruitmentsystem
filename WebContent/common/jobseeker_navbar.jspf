@@ -6,31 +6,20 @@
 				         style="font-size:100%;">Jobs<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 
-						<li><a href="map.do">Job by Location</a></li>
-						<li><a href="job.do">Job by Skill</a></li>
-						<li><a href="job.do">Job by Designation</a></li>
-						<li><a href="job.do">Job by Category</a></li>
+						<li><a href="map.do">Job Location</a></li>
+						<li><a href="job.do">All Jobs</a></li>
 					</ul>
 				</li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-				        style="font-size:100%;">Recruiters<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">All Recruiters</a></li>
-						<li><a href="#">Recruiters by Location</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-				          style="font-size:100%;">Companies<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="aboutcompanies.do">About Companies</a></li>
-					</ul>
+				<li class="dropdown"><a href="aboutcompanies.do" class="dropdown-toggle" data-toggle="dropdown" 
+				          style="font-size:100%;">Companies</a>
+					
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 				          style="font-size:100%;">Services<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="help.do">Help/FAQ's</a></li>
-						<li><a href="feedback.do">Feedback</a></li>
-						<li><a href="contact.do">Contact Us</a></li>
+						<li><a href="helpjobseeker.do">Help/FAQ's</a></li>
+						<li><a href="feedbackjobseeker.do">Feedback</a></li>
+						<li><a href="contactjobseeker.do">Contact Us</a></li>
 						
 					</ul>
 				</li>

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import com.app.mailnotification.SendMail;
-import com.app.update.Update;
+import com.app.update.UpdateJobseeker;
 
 
 //import com.app.todo.Todo;
@@ -83,7 +83,7 @@ public class PostServlet extends HttpServlet {
 				{
 					conn = ds.getConnection();
 					Message m=new Message();
-					Update u=new Update();
+					UpdateJobseeker u=new UpdateJobseeker();
 					m.setPercentage(percentage);
 					m.setYear(Integer.parseInt(year));
 					m.setDegree(degree);

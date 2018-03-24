@@ -9,7 +9,7 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
 
-import com.app.update.Update;
+import com.app.update.UpdateJobseeker;
 
 public class PostService {
 		
@@ -74,7 +74,7 @@ private static List<String> email = new ArrayList<String>();
 				if (rs != null) {
 					int i=0;
 					while (rs.next()) {
-						Update u=new Update();
+						UpdateJobseeker u=new UpdateJobseeker();
 						//u.setEmail(rs.getString("email"));
 						System.out.println(rs.getString("email"));
 						allEmails[i]=rs.getString("email");

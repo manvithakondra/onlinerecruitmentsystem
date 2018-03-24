@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import com.app.post.Message;
 import com.app.post.PostService;
 //import com.app.update.EditJobseekerService;
-import com.app.update.Update;
+import com.app.update.UpdateJobseeker;
 
 
 @WebServlet("/apply.do")
@@ -41,7 +41,7 @@ public class ApplyServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("messages", postservice.retrieveMessage(conn));
-		System.out.println("doGet");
+		//System.out.println("doGet");
 		request.getRequestDispatcher("view/job.jsp").forward(request, response);
 	}
 
@@ -80,8 +80,8 @@ public class ApplyServlet extends HttpServlet {
 		{
 		//	System.out.println("else");
 			Message m=shortlist.jobRetrieve( jid, conn);
-			Update u=shortlist.userRetrieve( uid, conn);
-			System.out.println(u.getPercentage());
+			UpdateJobseeker u=shortlist.userRetrieve( uid, conn);
+			//System.out.println(u.getPercentage());
 			shortlist.compare(m, u, uid);
 			request.getSession().setAttribute("msg", "success");
 			request.getSession().setAttribute("success", "applied successfully");

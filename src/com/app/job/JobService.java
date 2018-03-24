@@ -21,7 +21,7 @@ private static List<company> companyList = new ArrayList<company>();
 
 				Statement stmt = conn.createStatement();
 				String sql = "select * from company where cid='"+ cid +"'";
-				System.out.println(sql);
+				//System.out.println(sql);
 				rs = stmt.executeQuery(sql);
 
 				if (rs != null) {
